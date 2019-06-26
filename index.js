@@ -1,10 +1,14 @@
 var player;
 var ball;
 var bricks = [];
-var no_of_bricks = 15;
+var no_of_bricks;
+var brick_width = 50;
+var no_of_layers = 3;
+var brick_height = 10
 
 function setup(){
     createCanvas(windowWidth, windowHeight);
+    no_of_bricks = Math.floor(width / brick_width);
     player = new Player(0, height - 20, 100, 10, random_color(), 10);
     ball = new Ball(20, 20 , 15, 5, 120, random_color());
     generate_bricks();
@@ -12,11 +16,15 @@ function setup(){
 
 
 function generate_bricks(){
-    let x = -50, y = 20, w = 50, h = 10;
-    for(let i = 0; i < no_of_bricks; i++){
-        x += w;
-        let brick = new Brick(x, y, w, h, random_color(), true);
-        bricks.push(brick);
+    let x = -50, y = 20, w = brick_width, h = brick_height;
+    for(let i = 0; i < no_of_layers; i++){
+        x = -50, y += h;
+        for(let j = 0; j < no_of_bricks; j++){
+            x += w;
+            let brick = new Brick(x, y, w, h, random_color(), true);
+            bricks.push(brick);
+        }
+        
     }
 }
 

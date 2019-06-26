@@ -16,6 +16,7 @@ class Brick {
     update(){
         if((parseInt(ball.x) >= this.x && parseInt(ball.x) <= this.x + this.w) && parseInt(ball.y) == this.y + this.h){
             this.on_screen = false;
+            ball.a = - ball.a;
             console.log('collision');
         }
     }
