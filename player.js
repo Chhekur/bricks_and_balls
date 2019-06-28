@@ -14,6 +14,6 @@ class Player{
     }
 
     update(){
-        this.x = constrain(mouseX, 0, width);
+        this.x = constrain(mouseX, 0, width - this.w);
     }
 }

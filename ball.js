@@ -23,7 +23,7 @@ class Ball{
 
         let dist = abs(this.y - player.y);
         let dist1 = abs(this.x - player.x);
-        let dist2 = abs((this.x + this.w) - player.x);
+        let dist2 = abs(this.x - player.x + player.w);
 
         console.log(dist);
         if(dist <= this.d / 2 && (this.x >= player.x && this.x <= player.x + player.w)) this.v_y *= -1;

@@ -7,6 +7,8 @@ var brick_width = 60;
 var brick_height = 20
 var score = 0;
 
+var power_ups = [];
+
 function show_score(){
     textSize(25);
     fill(255);
@@ -16,11 +18,31 @@ function show_score(){
 function setup(){
     createCanvas(windowWidth, windowHeight);
     // no_of_bricks = Math.floor(width / brick_width);
-    player = new Player(0, height - 20, 100, 10, random_color(), 10);
+    player = new Player(0, height - 20, 100, 12, random_color(), 10);
     ball = new Ball(50, 50 , 15, random(3,5), random(3,5), 0.3 ,random_color());
     generate_bricks();
 }
 
+
+function generate_power_up(){
+    // console.log('generating power ups...')
+    power_ups.push(new Power_up(random(width), 0, random(10,20), random(3,7), random(['+','-','*']), true));
+    // console.log(power_ups[0]);
+}
+
+function update_power_ups(){
+    // console.log('updating power ups...')
+    console.log(power_ups.length);
+    for(let i = 0; i < power_ups.length; i++){
+        if(power_ups[i].on_screen){
+            // console.log('someting....')
+            power_ups[i].draw();
+            power_ups[i].update();
+        }else{
+            power_ups.splice(i, 1);
+        }
+    }
+}
 
 function generate_bricks(){
     let padding  = 10;
@@ -66,5 +88,7 @@ function draw(){
     ball.update();
     draw_bricks();
     show_score();
+    if(frameCount % 150 == 0) generate_power_up();
+    update_power_ups();
 }
 // basket.x = constrain(mouseX, 0 ,width);
