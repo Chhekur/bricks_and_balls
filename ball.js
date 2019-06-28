@@ -1,11 +1,12 @@
 class Ball{
-    constructor(x, y, d, v_x, v_y, color){
+    constructor(x, y, d, v_x, v_y, i ,color){
         this.x = x;
         this.y = y;
         this.d = d;
         this.color = color;
         this.v_x = v_x;
         this.v_y = v_y;
+        this.i = i;
     }
 
     draw(){
@@ -17,7 +18,7 @@ class Ball{
     update(){
         if(this.y >= height) game_over();
 
-        if(this.x >= width - this.d || this.x <= 0 + this.d) this.v_x *= -1;
+        if(this.x >= (width - this.d) || this.x <= 0 + this.d) this.v_x *= -1;
         if(this.y <= 0 + this.d) this.v_y *= -1;
 
         let dist = abs(this.y - player.y);
