@@ -1,5 +1,5 @@
 class Ball{
-    constructor(x, y, d, v_x, v_y, i ,color){
+    constructor(x, y, d, v_x, v_y, i ,color, on_screen){
         this.x = x;
         this.y = y;
         this.d = d;
@@ -7,6 +7,7 @@ class Ball{
         this.v_x = v_x;
         this.v_y = v_y;
         this.i = i;
+        this.on_screen = on_screen;
     }
 
     draw(){

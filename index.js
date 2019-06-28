@@ -19,14 +19,14 @@ function setup(){
     createCanvas(windowWidth, windowHeight);
     // no_of_bricks = Math.floor(width / brick_width);
     player = new Player(0, height - 20, 100, 12, random_color(), 10);
-    ball = new Ball(50, 50 , 15, random(3,5), random(3,5), 0.3 ,random_color());
+    ball = new Ball(50, 50 , 15, random(3,5), random(3,5), 0.3 , color(255,255,255));
     generate_bricks();
 }
 
 
 function generate_power_up(){
     // console.log('generating power ups...')
-    power_ups.push(new Power_up(random(width), 0, random(10,20), random(3,7), random(['+','-','*']), true));
+    power_ups.push(new Power_up(random(width), 0, random(10,20), random(3,7), random(['+','-']), true));
     // console.log(power_ups[0]);
 }
 
@@ -43,6 +43,17 @@ function update_power_ups(){
         }
     }
 }
+
+// function update_balls(){
+//     for(let i = 0; i < balls.length; i++){
+//         if(balls[i].on_screen){
+//             balls[i].draw();
+//             balls[i].update();
+//         }else{
+//             balls.splice(i, 1);
+//         }
+//     }
+// }
 
 function generate_bricks(){
     let padding  = 10;
