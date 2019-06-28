@@ -10,7 +10,7 @@ function setup(){
     createCanvas(windowWidth, windowHeight);
     no_of_bricks = Math.floor(width / brick_width);
     player = new Player(0, height - 20, 100, 10, random_color(), 10);
-    ball = new Ball(20, 20 , 15, 5, 120, random_color());
+    ball = new Ball(50, 50 , 15, random(5), random(5), random_color());
     generate_bricks();
 }
 
